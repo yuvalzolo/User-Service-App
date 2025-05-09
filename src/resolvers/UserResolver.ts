@@ -1,6 +1,7 @@
 import { Resolver, Query, Mutation, Arg, ID } from 'type-graphql';
 import { User, City } from '../entities/User';
 import { AppDataSource } from '../index';
+import { notifyUserSignupEmail } from '../utils/sns';
 
 @Resolver(User)
 export class UserResolver {
@@ -19,7 +20,9 @@ export class UserResolver {
         @Arg('city', () => City) city: City
     ): Promise<User> {
         const user = this.userRepo.create({ first_name, last_name, birth_date, city });
-        return await this.userRepo.save(user);
+        const savedUser = await this.userRepo.save(user);
+        await notifyUserSignupEmail(first_name, last_name);
+        return savedUser;
     }
 
     @Mutation(() => User)

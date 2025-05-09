@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client';
-import { client } from './apollo';
+import { client } from './apollo.ts';
 import { UserList } from './components/UserList';
 import { UserForm } from './components/UserForm';
 import { useQuery, gql } from '@apollo/client';

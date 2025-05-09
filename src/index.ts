@@ -32,7 +32,13 @@ async function startServer() {
             validate: false,
         });
 
-        const server = new ApolloServer({ schema });
+        const server = new ApolloServer({
+            schema,
+            cors: {
+                origin: 'http://localhost:5173',
+                credentials: true,
+            },
+        });
 
         const { url } = await server.listen({ port: 4000 });
         console.log(`🚀 Server is running at ${url}`);
