@@ -72,7 +72,7 @@ export function UserForm({
                 <option value="JERUSALEM">Jerusalem</option>
                 <option value="HAIFA">Haifa</option>
             </select>
-            <button type="submit">{editingUser ? 'Update' : 'Create'}</button>
+            <button type="submit" disabled={!form.first_name || !form.last_name || !form.birth_date || !form.city}>{editingUser ? 'Update' : 'Create'}</button>
         </form>
     );
 }
