@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY=your-secret
 AWS_SNS_TOPIC_ARN=arn:aws:sns:...:your-topic
 
 ⚠️ Important:
-Copy .env.example to .env and fill in your own values, especially for AWS keys if you wish to test email notifications.
+Copy this to .env and fill in your own values, especially for AWS keys if you wish to test email notifications.
 ```
 
 ### 3. Run the project using Docker Compose
