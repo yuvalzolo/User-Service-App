@@ -8,7 +8,7 @@ export enum City {
 }
 
 registerEnumType(City, {
-    name: 'City', // This name will appear in the GraphQL schema
+    name: 'City',
 });
 
 @ObjectType()
